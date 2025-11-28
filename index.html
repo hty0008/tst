@@ -190,6 +190,36 @@
                 font-size: 16px;
             }
         }
+
+/* -------------------------
+     Mac風スクロールバー
+-------------------------- */
+
+/* WebKit系（Chrome / Safari / Edge） */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.5) transparent;
+}
     </style>
 </head>
 <body>
