@@ -1,345 +1,331 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: #aaaaaa;
-            line-height: 1.7;
-        }
-
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 24px;
-            gap: 48px;
-        }
-
-        .sidebar {
-            flex: 0 0 240px;
-            position: sticky;
-            top: 40px;
-            height: fit-content;
-        }
-
-        .sidebar h2 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #aaaaaa;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .sidebar nav ul {
-            list-style: none;
-        }
-
-        .sidebar nav li {
-            margin-bottom: 4px;
-        }
-
-        .sidebar nav a {
-            text-decoration: none;
-            color: #262626;
-            font-size: 14px;
-            font-weight: 400;
-            display: block;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: all 0.15s ease;
-            line-height: 1.4;
-        }
-
-        .sidebar nav a:hover {
-            background: #444444;
-            color: #ffffff;
-        }
-
-        .sidebar nav a.active {
-            background: #262626;
-            color: #ffffff;
-            font-weight: 500;
-        }
-
-        /* 右側の年表コンテンツ */
-        .timeline-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .timeline-section {
-            margin-bottom: 64px;
-            scroll-margin-top: 40px;
-            background: #262626;
-            padding: 32px;
-            border-radius: 8px;
-        }
-
-        .timeline-header {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 32px;
-            color: #fff;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #444;
-        }
-
-        .timeline-items {
-            position: relative;
-            padding-left: 32px;
-        }
-
-        .timeline-items::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            bottom: 0;
-            width: 2px;
-            background: #444;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 32px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -37px;
-            top: 6px;
-            width: 8px;
-            height: 8px;
-            background: #37352f;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 0 1px #e9e9e7;
-        }
-
-        .timeline-year {
-            font-size: 18px;
-            font-weight: 700;
-            color: #aaaaaa;
-            margin-bottom: 8px;
-        }
-
-        .timeline-description {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #aaaaaa;
-            margin-bottom: 8px;
-        }
-
-        .timeline-image {
-            margin-top: 16px;
-            max-width: 500px;
-        }
-
-        .timeline-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 3px;
-            border: 1px solid #e9e9e7;
-        }
-
-        .timeline-caption {
-            font-size: 12px;
-            color: #37352f99;
-            margin-top: 8px;
-        }
-
-        /* レスポンシブ対応 */
-        @media (max-width: 968px) {
-            .container {
-                flex-direction: column;
-                gap: 32px;
-                padding: 24px 16px;
-            }
-
-            .sidebar {
-                display: none;
-            }
-
-            .timeline-items {
-                padding-left: 24px;
-            }
-
-            .timeline-item::before {
-                left: -29px;
-            }
-
-            .timeline-header {
-                font-size: 20px;
-            }
-
-            .timeline-year {
-                font-size: 16px;
-            }
-        }
-
-/* -------------------------
-     Mac風スクロールバー
--------------------------- */
-
-/* WebKit系（Chrome / Safari / Edge） */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.35);
-    border-radius: 999px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.6);
-}
-
-/* Firefox */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0,0,0,0.5) transparent;
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+  * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+  
+          body {
+              font-family: 'Noto Sans JP', sans-serif;
+              color: #aaaaaa;
+              line-height: 1.7;
+          }
+  
+          .container {
+              display: flex;
+              margin: 0 auto;
+              padding: 40px 24px;
+              gap: 48px;
+          }
+  
+          .sidebar {
+              flex: 0 0 240px;
+              position: sticky;
+              top: 40px;
+              height: fit-content;
+          }
+  
+          .sidebar h2 {
+              font-size: 14px;
+              font-weight: 700;
+              margin-bottom: 12px;
+              color: #aaaaaa;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+          }
+  
+          .sidebar nav ul {
+              list-style: none;
+          }
+  
+          .sidebar nav li {
+              margin-bottom: 4px;
+          }
+  
+          .sidebar nav a {
+              text-decoration: none;
+              color: #262626;
+              font-size: 14px;
+              font-weight: 400;
+              display: block;
+              padding: 6px 12px;
+              border-radius: 4px;
+              transition: all 0.15s ease;
+              line-height: 1.4;
+          }
+  
+          .sidebar nav a:hover {
+              background: #444444;
+              color: #ffffff;
+          }
+  
+          .sidebar nav a.active {
+              background: #262626;
+              color: #ffffff;
+              font-weight: 500;
+          }
+  
+          /* 右側の年表コンテンツ */
+          .timeline-content {
+              flex: 1;
+              min-width: 0;
+          }
+  
+          .timeline-section {
+              margin-bottom: 64px;
+              scroll-margin-top: 40px;
+              background: #262626;
+              padding: 32px;
+              border-radius: 8px;
+          }
+  
+          .timeline-header {
+              font-size: 24px;
+              font-weight: 700;
+              margin-bottom: 32px;
+              color: #fff;
+              padding-bottom: 12px;
+              border-bottom: 1px solid #444;
+          }
+  
+          .timeline-items {
+              position: relative;
+              padding-left: 32px;
+          }
+  
+          .timeline-items::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 8px;
+              bottom: 0;
+              width: 2px;
+              background: #444;
+          }
+  
+          .timeline-item {
+              position: relative;
+              margin-bottom: 32px;
+          }
+  
+          .timeline-item::before {
+              content: '';
+              position: absolute;
+              left: -37px;
+              top: 6px;
+              width: 8px;
+              height: 8px;
+              background: #37352f;
+              border-radius: 50%;
+              border: 2px solid white;
+              box-shadow: 0 0 0 1px #e9e9e7;
+          }
+  
+          .timeline-year {
+              font-size: 18px;
+              font-weight: 700;
+              color: #aaaaaa;
+              margin-bottom: 8px;
+          }
+  
+          .timeline-description {
+              font-size: 14px;
+              line-height: 1.8;
+              color: #aaaaaa;
+              margin-bottom: 8px;
+          }
+  
+          .timeline-image {
+              margin-top: 16px;
+              max-width: 500px;
+          }
+  
+          .timeline-image img {
+              width: 100%;
+              height: auto;
+              border-radius: 3px;
+              border: 1px solid #e9e9e7;
+          }
+  
+          .timeline-caption {
+              font-size: 12px;
+              color: #37352f99;
+              margin-top: 8px;
+          }
+  
+          /* レスポンシブ対応 */
+          @media (max-width: 968px) {
+              .container {
+                  flex-direction: column;
+                  gap: 32px;
+                  padding: 24px 16px;
+              }
+  
+              .sidebar {
+                  display: none;
+              }
+  
+              .timeline-items {
+                  padding-left: 24px;
+              }
+  
+              .timeline-item::before {
+                  left: -29px;
+              }
+  
+              .timeline-header {
+                  font-size: 20px;
+              }
+  
+              .timeline-year {
+                  font-size: 16px;
+              }
+          }
+  
+  /* -------------------------
+       Mac風スクロールバー
+  -------------------------- */
+  
+  /* WebKit系（Chrome / Safari / Edge） */
+  ::-webkit-scrollbar {
+      width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+      background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Firefox */
+  html {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.5) transparent;
+  }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- 左側のアンカーリンク -->
-        <aside class="sidebar">
-            <h2>Contents</h2>
-            <nav>
-                <ul>
-                    <li><a href="#period1" class="nav-link">1908 ~ 1952<br>設立前史</a></li>
-                    <li><a href="#period2" class="nav-link">1952 ~ 1961<br>日亜鋼業の発足</a></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- 右側の年表コンテンツ -->
-        <main class="timeline-content">
-            <!-- 期間1 -->
-            <section class="timeline-section" id="period1">
-                <div class="timeline-header">1908 ~ 1952 設立前史</div>
-                <div class="timeline-items">
-                    <div class="timeline-item">
-                        <div class="timeline-year">1908</div>
-                        <div class="timeline-description">
-                            日亜鋼業㈱初代社長となる田中徳松の父親である田中松之助が大阪市浪速区で「田中亜鉛鍍金工場」創立
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1918</div>
-                        <div class="timeline-description">
-                            田中徳松が田中亜鉛鍍金から鉄板のめっき部門を引き継ぎ、「日本亜鉛鍍株式会社」設立
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1929</div>
-                        <div class="timeline-description">
-                            針金、有刺鉄線、丸釘の製造を開始
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1935</div>
-                        <div class="timeline-description">
-                            「日本亜鉛鍍鋼業株式会社」に改称、本社を尼崎市に移転
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1939</div>
-                        <div class="timeline-description">
-                            「日亜製鋼株式会社」に社名変更
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 期間2 -->
-            <section class="timeline-section" id="period2">
-                <div class="timeline-header">1952 ~ 1961 日亜鋼業の発足</div>
-                <div class="timeline-items">
-                    <div class="timeline-item">
-                        <div class="timeline-year">1952</div>
-                        <div class="timeline-description">
-                            日亜製鋼尼崎第3工場が独立分離し、「日亜鋼業株式会社」が発足、初代社長に「田中徳松」が就任
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1958</div>
-                        <div class="timeline-description">
-                            鉄線、バーブドワイヤー、亜鉛めっき鉄線のJIS表示許可工場に認定
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1961</div>
-                        <div class="timeline-description">
-                            日亜加工鋼業株式会社を吸収合併し、ボルト、丁番の製造販売を開始
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-    </div>
-
-    <script>
-        // スクロールに応じてアクティブなリンクを変更
-        const sections = document.querySelectorAll('.timeline-section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        function updateActiveLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (window.scrollY >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveLink);
-        updateActiveLink();
-
-        // スムーススクロール
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                window.scrollTo({
-                    top: targetSection.offsetTop - 40,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+  <div class="container">
+    <!-- 左側のアンカーリンク -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li>
+            <a href="#period1" class="nav-link">1908 ~ 1952
+              <br>設立前史</a>
+          </li>
+          <li>
+            <a href="#period2" class="nav-link">1952 ~ 1961
+              <br>日亜鋼業の発足</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- 右側の年表コンテンツ -->
+    <main class="timeline-content">
+      <!-- 期間1 -->
+      <section class="timeline-section" id="period1">
+        <div class="timeline-header">1908 ~ 1952 設立前史</div>
+        <div class="timeline-items">
+          <div class="timeline-item">
+            <div class="timeline-year">1908</div>
+            <div class="timeline-description">日亜鋼業㈱初代社長となる田中徳松の父親である田中松之助が大阪市浪速区で「田中亜鉛鍍金工場」創立</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1918</div>
+            <div class="timeline-description">田中徳松が田中亜鉛鍍金から鉄板のめっき部門を引き継ぎ、「日本亜鉛鍍株式会社」設立</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1929</div>
+            <div class="timeline-description">針金、有刺鉄線、丸釘の製造を開始</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1935</div>
+            <div class="timeline-description">「日本亜鉛鍍鋼業株式会社」に改称、本社を尼崎市に移転</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1939</div>
+            <div class="timeline-description">「日亜製鋼株式会社」に社名変更</div>
+          </div>
+        </div>
+      </section>
+      <!-- 期間2 -->
+      <section class="timeline-section" id="period2">
+        <div class="timeline-header">1952 ~ 1961 日亜鋼業の発足</div>
+        <div class="timeline-items">
+          <div class="timeline-item">
+            <div class="timeline-year">1952</div>
+            <div class="timeline-description">日亜製鋼尼崎第3工場が独立分離し、「日亜鋼業株式会社」が発足、初代社長に「田中徳松」が就任</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1958</div>
+            <div class="timeline-description">鉄線、バーブドワイヤー、亜鉛めっき鉄線のJIS表示許可工場に認定</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1961</div>
+            <div class="timeline-description">日亜加工鋼業株式会社を吸収合併し、ボルト、丁番の製造販売を開始</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+  // スクロールに応じてアクティブなリンクを変更
+          const sections = document.querySelectorAll('.timeline-section');
+          const navLinks = document.querySelectorAll('.nav-link');
+  
+          function updateActiveLink() {
+              let current = '';
+              sections.forEach(section => {
+                  const sectionTop = section.offsetTop;
+                  const sectionHeight = section.offsetHeight;
+                  if (window.scrollY >= sectionTop - 100) {
+                      current = section.getAttribute('id');
+                  }
+              });
+  
+              navLinks.forEach(link => {
+                  link.classList.remove('active');
+                  if (link.getAttribute('href').substring(1) === current) {
+                      link.classList.add('active');
+                  }
+              });
+          }
+  
+          window.addEventListener('scroll', updateActiveLink);
+          updateActiveLink();
+  
+          // スムーススクロール
+          navLinks.forEach(link => {
+              link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const targetId = this.getAttribute('href');
+                  const targetSection = document.querySelector(targetId);
+                  window.scrollTo({
+                      top: targetSection.offsetTop - 40,
+                      behavior: 'smooth'
+                  });
+              });
+          });
+  </script>
 </body>
 </html>
